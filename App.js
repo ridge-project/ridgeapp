@@ -11,7 +11,7 @@ class HomeScreen extends React.Component {/* Creates Home Screen Buttons */
   render() {
     return (
      <View style={styles.container}>
-        <Text style={{fontSize: 60,textAlign: "center",fontStyle: 'normal',color: 'lightyellow',marginTop: 60, marginBottom: 50}}>
+        <Text style={{fontSize: 60,textAlign: "center",fontStyle: 'normal',color: 'lightyellow',marginTop: 100, marginBottom: 50}}>
 
         Welcome          to the         Ridge App!
 
@@ -42,9 +42,52 @@ class HomeScreen extends React.Component {/* Creates Home Screen Buttons */
 class PlayScreen extends React.Component { /* Creates Play Screen and Go to Home Screen Button */
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{fontSize:60,textAlign: "center",fontStyle: 'normal',color: 'lightyellow',marginTop: 5}}>Play Screen</Text>
-        <TouchableOpacity style={{backgroundColor: 'deepskyblue', padding: 10, marginTop: 85,}}
+      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
+        <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 100, alignItems: 'center'}} />
+        <TouchableOpacity style={{backgroundColor: 'deepskyblue', paddingLeft: 60, paddingRight: 60, marginTop: -160,}}
+        onPress={() => {
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: 'Listener' })
+              ],
+            }))
+          }}>
+          <Text style={{ fontSize: 20,color: '#841584'}}>Start</Text>
+        </TouchableOpacity> 
+      </View>
+    );
+  }  
+}
+class ListenerScreen extends React.Component { /* Creates Play Screen and Go to Home Screen Button */
+  render() {
+    return (
+      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
+        <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 100, alignItems: 'center'}} />
+        <TouchableOpacity style={{backgroundColor: 'deepskyblue', paddingLeft: 60, paddingRight: 60, marginTop: 100,}}
+        onPress={() => {
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: 'Comparison' })
+              ],
+            }))
+          }}>
+          <Text style={{ fontSize: 20,color: '#841584'}}>Stop</Text>
+        </TouchableOpacity> 
+      </View>
+    );
+  }  
+}
+class ComparisonScreen extends React.Component { /* Creates Play Screen and Go to Home Screen Button */
+  render() {
+    return (
+      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
+      <Text style={{ fontSize: 20,color: 'coral',marginTop: 50}}>What you drew</Text>
+        <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 10, alignItems: 'center'}} />
+        <Text style={{ fontSize: 20,color: 'coral',marginTop: 10}}>Actual Image</Text>
+         <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 10, alignItems: 'center'}} />
+        <TouchableOpacity style={{backgroundColor: 'deepskyblue', paddingLeft: 60, paddingRight: 60, marginTop: 10,}}
         onPress={() => {
             this.props.navigation.dispatch(StackActions.reset({
               index: 0,
@@ -53,7 +96,7 @@ class PlayScreen extends React.Component { /* Creates Play Screen and Go to Home
               ],
             }))
           }}>
-          <Text style={{ fontSize: 20,color: '#841584'}}>Go back to Home Screen</Text>             
+          <Text style={{ fontSize: 20,color: '#841584'}}>Back to Home</Text>
         </TouchableOpacity> 
       </View>
     );
@@ -66,6 +109,12 @@ const AppNavigator = createStackNavigator({ /*establishes navigation routes*/
   },
   Play: {
     screen: PlayScreen,
+  },
+  Listener: {
+    screen: ListenerScreen,
+  },
+  Comparison: {
+    screen: ComparisonScreen,
   },
 }, {
     initialRouteName: 'Home',
