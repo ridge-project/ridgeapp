@@ -82,7 +82,7 @@ class ListenerScreen extends React.Component { /* Creates Play Screen and Go to 
 class ComparisonScreen extends React.Component { /* Creates Play Screen and Go to Home Screen Button */
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
+      <ScrollView style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
       <Text style={{ fontSize: 20,color: 'coral',marginTop: 50}}>What you drew</Text>
         <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 10, alignItems: 'center'}} />
         <Text style={{ fontSize: 20,color: 'coral',marginTop: 10}}>Actual Image</Text>
@@ -98,7 +98,7 @@ class ComparisonScreen extends React.Component { /* Creates Play Screen and Go t
           }}>
           <Text style={{ fontSize: 20,color: '#841584'}}>Back to Home</Text>
         </TouchableOpacity> 
-      </View>
+      </ScrollView>
     );
   }  
 }
