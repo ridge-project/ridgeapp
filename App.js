@@ -108,7 +108,7 @@ class ComparisonScreen extends React.Component { /* Creates Play Screen and Go t
   }  
 }
  AppRegistry.registerComponent(
-  'AwesomeProject',
+  'ridgeapp',
   () => ComparisonScreen);
 
 const AppNavigator = createStackNavigator({ /*establishes navigation routes*/
