@@ -6,6 +6,9 @@ import { StackActions, NavigationActions } from 'react-navigation';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import { TouchableOpacity } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
+import { ScrollView } from 'react-native';
+
+
 
 class HomeScreen extends React.Component {/* Creates Home Screen Buttons */
   render() {
@@ -82,10 +85,11 @@ class ListenerScreen extends React.Component { /* Creates Play Screen and Go to 
 class ComparisonScreen extends React.Component { /* Creates Play Screen and Go to Home Screen Button */
   render() {
     return (
-      <ScrollView style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
-      <Text style={{ fontSize: 20,color: 'coral',marginTop: 50}}>What you drew</Text>
+      <View style={{flex: 1, backgroundColor: 'powderblue', alignItems: 'center'}}>
+      <ScrollView>
+      <Text style={{ fontSize: 20,color: 'coral',marginTop: 50, textAlign: 'center'}}>What you drew</Text>
         <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 10, alignItems: 'center'}} />
-        <Text style={{ fontSize: 20,color: 'coral',marginTop: 10}}>Actual Image</Text>
+        <Text style={{ fontSize: 20,color: 'coral',marginTop: 10, textAlign: 'center'}}>Actual Image</Text>
          <View style={{width: 300, height: 300, backgroundColor: 'coral', marginTop: 10, alignItems: 'center'}} />
         <TouchableOpacity style={{backgroundColor: 'deepskyblue', paddingLeft: 60, paddingRight: 60, marginTop: 10,}}
         onPress={() => {
@@ -96,12 +100,16 @@ class ComparisonScreen extends React.Component { /* Creates Play Screen and Go t
               ],
             }))
           }}>
-          <Text style={{ fontSize: 20,color: '#841584'}}>Back to Home</Text>
-        </TouchableOpacity> 
-      </ScrollView>
+          <Text style={{ fontSize: 20,color: '#841584', textAlign: 'center'}}>Back to Home</Text>
+          </TouchableOpacity> 
+         </ScrollView>
+        </View>
     );
   }  
 }
+ AppRegistry.registerComponent(
+  'AwesomeProject',
+  () => ComparisonScreen);
 
 const AppNavigator = createStackNavigator({ /*establishes navigation routes*/
   Home: {
@@ -131,4 +139,3 @@ const styles = StyleSheet.create({
 });
 
 export default createAppContainer(AppNavigator); /*Shows screen*/
-
